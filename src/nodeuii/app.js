@@ -1,7 +1,8 @@
 import Koa from 'koa';
 import controllerInit from './controllers/controllerInit';
 import config from './config/config';
-// import errorHandler from './middleware/errorHandler';
+import log4js from 'log4js';
+import errorHandler from './middleware/errorHandler';
 import router from 'koa-simple-router';
 import render from 'koa-swig';
 import serve from 'koa-static';
@@ -17,6 +18,14 @@ app.context.render = co.wrap(
     writeBody: false
   })
 );
+// log4 配置项
+log4js.configure({
+  appenders: { logs: { type: 'file', filename: './logs/logs.log' } },
+  categories: { default: { appenders: ['logs'], level: 'error' } }
+});
+const logger = log4js.getLogger('logs');
+// logger.debug('some debug')
+errorHandler.error(app,logger);
 app.use(serve(config.staticDir)); // 静态资源文件
 
 controllerInit.getAllrouters(app, router);

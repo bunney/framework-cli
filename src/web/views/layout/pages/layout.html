@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% block styles %}{{css}}{% endblock %}
+
+</head>
+
+<body>
+        <div class="layout">
+            {% include "../widget/header.html" %} 
+            {% block content %}{% endblock %}
+            {% include "../widget/footer.html" %}
+        </div>
+        {% block scripts %}{{js}}{% endblock %}
+</body>
+
+</html>
