@@ -30,6 +30,6 @@ app.use(serve(config.staticDir)); // 静态资源文件
 
 controllerInit.getAllrouters(app, router);
 app.listen(config.port, () => {
-  console.log("ydVueSystem listening on port %s", config.port);
+  console.log("duSystem listening on port %s", config.port);
 });
 export default app;
