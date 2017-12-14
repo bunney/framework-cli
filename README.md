@@ -2,6 +2,8 @@
 ## koa2 + webpack + swig 的前后端cli 
 ## 
 
+```
+
 ├─ config
 │  ├─ htmlAfterWebpackPlugin.js
 │  ├─ webpack.base.conf.js
@@ -70,3 +72,4 @@
 ├─ package.json
 ├─ postcss.config.js
 └─ yarn.lock
+```
